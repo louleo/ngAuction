@@ -1,0 +1,37 @@
+:host {
+    display: block;
+}
+
+.grid-list-container {
+    margin: 16px;
+}
+
+
+.tile__content {
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+}
+
+.tile__price-tag {
+    font-size: 16px;
+    font-weight: 700;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.tile__price-tag--xs {
+    font-size: 14px;
+}
+
+.tile__thumbnail {
+    background: no-repeat 50% 50%;
+    background-size: contain;
+    height: 50%;
+    width: 50%;
+}

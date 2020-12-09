@@ -1,0 +1,29 @@
+<div class="wrapper"
+    fxLayout="row"
+    fxLayoutAlign="center"
+    fxLayout.xs="column"
+    fxLayoutAlign.xs="center center">
+    <div fxFlex="50%">
+        <img class="thumbnail"
+        [attr.alt]="product.title"
+        [attr.src]="product.imgUrl">
+    </div>
+    <div fxFlex="50%">
+        <div class="info">
+            <h1 class="info__title">{{product?.title}}</h1>
+            <div class="info__description">{{product?.description}}</div>
+            <div class="info__bid">
+                <span>
+                    <span class="info__bid-value">{{product?.price | currency: 'USD': 'symbol': '.0'}}</span>
+                    <span class="info__bid-value-decimal" >.00</span>
+                </span>
+                <span class="info__bid-label">LAST BID</span>
+            </div>
+            <button class="info__bid-button"
+                    mat-raised-button
+                    color="accent">
+                PLACE BID {{(product?.price + 5) | currency: 'USD': 'symbol': '.0'}}
+            </button>
+        </div>
+    </div>
+</div>

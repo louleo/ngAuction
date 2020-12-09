@@ -1,0 +1,11 @@
+<div class="info__title" fxLayout='row'>
+    more items to consider
+</div>
+<mat-grid-list>
+    <mat-grid-title class="title" *ngFor="let product of products">
+        <a class="title__content" fxLayout fxLayoutAlign="center center" [routerLink]="['/products',product.id]"></a>
+        <div class="title__thumbnail" [ngStyle]="{'background-image':'url('+product.imgUrl+')'}">
+            
+        </div>
+    </mat-grid-title>
+</mat-grid-list>

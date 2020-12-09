@@ -1,24 +1,7 @@
 import { Injectable } from '@angular/core';
-
-
-const products = [
-  {
-    'id':0,
-    'title':'First Product',
-    'price':24.99,
-    'rating':4.3,
-    'description':'description',
-    'categories':['electronics','hardware']
-  },
-  {
-    'id':1,
-    'title':'Second Product',
-    'price':24.99,
-    'rating':4.3,
-    'description':'description',
-    'categories':['books']
-  }
-];
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -26,29 +9,27 @@ const products = [
 
 export class ProductService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
 
 
-  getProducts():Product[]{
-    return products.map(p=> new Product(p.id,p.title,p.price,p.rating,p.description,p.categories));
+  getAll(): Observable<Product[]>{
+    return this.http.get<Product[]>('/api');
   }
 
-  getProductById(productId:number):Product{
-    return products.find(p=>p.id == productId);
+  getById(productId:number): Observable<Product>{
+    return this.http.get<Product[]>('/api').pipe(
+      map(products => <Product>products.find(p=>p.id == productId))
+    );
   }
 }
 
 
 
-export class Product {
-  constructor(
-    public id:number,
-    public title:string,
-    public price:number,
-    public rating:number,
-    public description:string,
-    public categories: string[]
-  ){}
-
+export interface Product {
+  id:number,
+  title:string,
+  price:number,
+  imgUrl:string,
+  description:string
 }

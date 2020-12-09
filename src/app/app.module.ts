@@ -1,34 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { CarouselComponent } from './carousel/carousel.component';
-import { FooterComponent } from './footer/footer.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ProductItemComponent } from './product-item/product-item.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { SearchComponent } from './search/search.component';
-import { StarsComponent } from './stars/stars.component';
 import { ProductService } from './shared/product.service';
-import { CommonModule} from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { routes } from './app-routing.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    CarouselComponent,
-    FooterComponent,
-    NavbarComponent,
-    ProductItemComponent,
-    ProductDetailComponent,
-    SearchComponent,
-    StarsComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
-    AppRoutingModule,
-    CommonModule
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    FlexLayoutModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [
     ProductService
